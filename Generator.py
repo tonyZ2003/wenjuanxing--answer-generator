@@ -79,7 +79,7 @@ def CollectQuestionaires(n, QuestType, Demand, DriverPath, link):
                     single_choice_options.append(
                         f'//*[@id="div{j+1}"]/div[2]/div[{option_index[k]}]/div'
                     )
-                for _ in range(2):  # 模拟人点错后重点的行为降低验证码的概率
+                for _ in range(3):  # 模拟人点错后重点的行为降低验证码的概率
                     random_option_xpath = random.choice(single_choice_options)
                     driver.find_element(By.XPATH, random_option_xpath).click()
             elif QuestType[j] == 4:
@@ -92,7 +92,7 @@ def CollectQuestionaires(n, QuestType, Demand, DriverPath, link):
                     multiple_choice_options.append(
                         f'//*[@id="div{j+1}"]/div[2]/div[{option_indices[k]}]/div'
                     )
-                for l in range(2):  # 模拟人点错后重点的行为降低验证码的概率
+                for _ in range(3):  # 模拟人点错后重点的行为降低验证码的概率
                     random_option_xpaths = random.sample(
                         multiple_choice_options,
                         k=random.randint(1, len(option_indices)),
